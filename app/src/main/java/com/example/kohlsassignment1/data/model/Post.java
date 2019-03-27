@@ -1,13 +1,13 @@
 
-package com.example.kohlsassignment1.model.Pojos;
+package com.example.kohlsassignment1.data.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.os.Parcelable.Creator;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class JsonReturn implements Parcelable
+public class Post implements Parcelable
 {
 
     @SerializedName("userId")
@@ -22,31 +22,31 @@ public class JsonReturn implements Parcelable
     @SerializedName("body")
     @Expose
     private String body;
-    public final static Creator<JsonReturn> CREATOR = new Creator<JsonReturn>() {
+    public final static Creator<Post> CREATOR = new Creator<Post>() {
 
 
         @SuppressWarnings({
             "unchecked"
         })
-        public JsonReturn createFromParcel(Parcel in) {
-            return new JsonReturn(in);
+        public Post createFromParcel(Parcel in) {
+            return new Post(in);
         }
 
-        public JsonReturn[] newArray(int size) {
-            return (new JsonReturn[size]);
+        public Post[] newArray(int size) {
+            return (new Post[size]);
         }
 
     }
     ;
 
-    protected JsonReturn(Parcel in) {
+    protected Post(Parcel in) {
         this.userId = ((Integer) in.readValue((Integer.class.getClassLoader())));
         this.id = ((Integer) in.readValue((Integer.class.getClassLoader())));
         this.title = ((String) in.readValue((String.class.getClassLoader())));
         this.body = ((String) in.readValue((String.class.getClassLoader())));
     }
 
-    public JsonReturn() {
+    public Post() {
     }
 
     public Integer getUserId() {
